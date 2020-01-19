@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <title>Minecraft基岩版字体包生成器</title>
+</head>
+
+<body>
+    <h1>Minecraft基岩版字体包生成器</h1>
+    <span id="control">
+        字体: <input type="text" class="input" id="font" value="Courier New"><br>
+        分辨率: <input type="number" class="input" id="resolution" value="16"><br>
+        字体大小: <input type="number" class="input" id="fontsize" value="16"><br>
+        <button id="submit" class="btn">提交</button>
+    </span>
+    <span class="canvas">
+        <canvas id="glyph" width="256" height="256"></canvas>
+        <canvas id="buffer" width="16" height="16"></canvas>
+    </span>
+    <script src="jszip.min.js"></script>
+    <script src="FileSaver.min.js"></script>
+    <script src="draw.js"></script>
+    <script>
+        let submit = document.getElementById('submit');
+        submit.addEventListener("click", () => {
+            {
+                let font = document.getElementById('font').value;
+                let resolution = document.getElementById('resolution').value;
+                let fontsize = document.getElementById('fontsize').value;
+                alert('需要较长时间，请耐心等待。\n具体时间取决于分辨率、浏览器以及电脑性能。');
+                alert('在此期间，你可以继续使用电脑。');
+                draw(font, resolution, fontsize);
+            }
+        });
+    </script>
+</body>
+
+</html>
